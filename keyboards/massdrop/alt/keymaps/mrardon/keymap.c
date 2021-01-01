@@ -224,20 +224,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
                 dprintf("Default layer changed to: QWERTY\r\n");
-
-                switch (biton32(default_layer_state)) {
-                    case _COLEMAK:
-                        // LED2 for COLEMAK
-                        dprintf("COLEMAK");
-                        break;
-                    case _QWERTY:
-                        // LED3 for QWERTY
-                        dprintf("QWERTY");
-                        break;
-                    case _COLEMAK_DH:
-                        dprintf("COLEMAK_DH");
-                        break;
-                    };
             }
             return false;
 
@@ -245,20 +231,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_COLEMAK);
                 dprintf("Default layer changed to: COLEMAK\r\n");
-
-                switch (biton32(default_layer_state)) {
-                    case _COLEMAK:
-                        // LED2 for COLEMAK
-                        dprintf("COLEMAK");
-                        break;
-                    case _QWERTY:
-                        // LED3 for QWERTY
-                        dprintf("QWERTY");
-                        break;
-                    case _COLEMAK_DH:
-                        dprintf("COLEMAK_DH");
-                        break;
-                    };
             }
             return false;
 
@@ -266,20 +238,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_COLEMAK_DH);
                 dprintf("Default layer changed to: COLEMAK_DH\r\n");
-
-                switch (biton32(default_layer_state)) {
-                    case _COLEMAK:
-                        // LED2 for COLEMAK
-                        dprintf("COLEMAK");
-                        break;
-                    case _QWERTY:
-                        // LED3 for QWERTY
-                        dprintf("QWERTY");
-                        break;
-                    case _COLEMAK_DH:
-                        dprintf("COLEMAK_DH");
-                        break;
-                    };
             }
             return false;
         default:
@@ -312,11 +270,11 @@ void rgb_matrix_indicators_user(void) {
             return;
         }
 
+    // If function layer is active always show that color
     if(get_highest_layer(layer_state) == _FUNC) {
         set_layer_color(_FUNC);
         return;
     }
 
     set_layer_color(biton32(default_layer_state));
-    dprintf("Layer: %d, State: %d\r\n", get_highest_layer(layer_state), layer_state);
 }
