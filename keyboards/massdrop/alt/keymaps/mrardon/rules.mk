@@ -9,6 +9,7 @@ TAP_DANCE_ENABLE = no			# Enable tap dance keys
 CONSOLE_ENABLE = yes			# Enable debugging console. Increases firmware size.
 TERMINAL_ENABLE = no
 EXTRAKEY_ENABLE = yes			# Audio control and System control
+RGBLIGHT_SLEEP = yes            # Sleep RGB when host sleeps
 # RAW_ENABLE = yes				# Raw HID has not yet been implemented for this keyboard
 # COMBO_ENABLE					# Key combo feature
 # LEADER_ENABLE					# Enable leader key chording
