@@ -25,10 +25,6 @@
 #define MAGENT {HSV_MAGENTA}
 #define PINK {HSV_PINK}
 
-#define _COLEMAK 0
-#define _QWERTY 1
-#define _FUNC 2
-
 //========================================================== CONFIGURABLE DEFAULTS ==========================================================
 extern bool g_suspend_state;
 extern rgb_config_t rgb_matrix_config;
@@ -43,5 +39,15 @@ enum alt_keycodes {
     DBG_MOU,               // DEBUG Toggle Mouse Prints
     MD_BOOT,               // Restart into bootloader after hold timeout
     ESC_GR,                // Grave on tap, Esc after hold timeout
-    RST_EEP                // Reset eeprom after hold timeout
+    RST_EEP,               // Reset eeprom after hold timeout
+    QWERTY,                // Change default layer to QWERTY
+    COLEMAK,               // Change default layer to Colemak
+    COLEMAK_DH            // Change default layer to Colemak DH
+};
+
+enum alt_layers {
+  _COLEMAK,
+  _COLEMAK_DH,
+  _QWERTY,
+  _FUNC
 };
